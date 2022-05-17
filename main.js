@@ -112,11 +112,11 @@ function MostrarTodosProductos(e) {
 
 
 const producto1 = { id: 2, producto: "Bateria Sonor SQ2" };
-const enJSON    = JSON.stringify(producto1);
+const enJSON = JSON.stringify(producto1);
 
 console.log(enJSON); // {"id":2,"producto":"Bateria Sonor SQ2"}
 console.log(typeof producto1);
-console.log(typeof enJSON); 
+console.log(typeof enJSON);
 
 localStorage.setItem("producto1", enJSON);
 
@@ -140,9 +140,9 @@ console.log(producto2.id);
 // MOSTRAR Y ALMACENAR EN LOCAL STORAGE USANDO JSON.STRINFIFY EN UN ARRAY, YA SEA ALMACENANDO PRODUCTO POR PRODUCTO O ALMACENANDO ARRAY COMPLETO
 
 const productos = [{ id: 1, producto: "Bateria Sonor SQ2", precio: 750000 },
-                { id: 2, producto: "Bateria Yamaha Custom Ash", precio: 635000 },
-                { id: 3, producto: "Bateria Pearl Master Custom Maple ", precio: 650000 },
-                { id: 4, producto: "Bateria Tama Starclassic Maple", precio: 690000 }];
+{ id: 2, producto: "Bateria Yamaha Custom Ash", precio: 635000 },
+{ id: 3, producto: "Bateria Pearl Master Custom Maple ", precio: 650000 },
+{ id: 4, producto: "Bateria Tama Starclassic Maple", precio: 690000 }];
 
 const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 
@@ -153,4 +153,52 @@ for (const producto of productos) {
 
 guardarLocal("listaProductos", JSON.stringify(productos));
 
+// UTILIZANDO OPERADOR TERNARIO MOSTRANDO UN RETURN PARA DECLARAR Y ASIGNAR CONDICIONALMENTE. LUEGO MOSTRAMOS EL MENSAJE.
+
+const usuario = {
+    nombre: "Felipe Canseco",
+    edad: 17
+}
+
+const permiso = (usuario.edad >= 18) ? true : false
+
+permiso ? alert("Puede continuar comprando") : alert("Debe ser mayor de 18 años para comprar")
+
+// DESESTRUCTURO PARA SIMPLIFICAR Y DE ESA MANERA GUARDAR PROPIEDADES DE UN OBJETO DE FORMA RAPIDA Y DIRECTA. LLAMO A LA CONSOLA Y PIDO QUE ME TRAIGA EL NOMBRE Y EL TELEFONO LABORAL.
+
+const usuario1 = {
+    nombre: "Juan Manuel Garcia",
+    edad: 40,
+    telefono: {
+        cel: 1155222333,
+        casa: 48404567,
+        trabajo: 1178030303
+    }
+}
+
+const { nombre, telefono: { trabajo } } = usuario1
+
+console.log(nombre)
+console.log(trabajo)
+
+// UTILIZO EL OPERADOR LOGICO AND PARA SIMPLIFICAR Y REDUCIR UN CONDICIONAL.
+
+const carrito = []
+
+if (carrito.length === 0) {
+    console.log("El carrito se encuentra vacío!")
+}
+
+carrito.length === 0 && console.log("El carrito se encuentra vacío!")
+
+
+// UTILIZO UN OPERADOR SPREAD PARA DEJAR EN CLARO QUE QUIERO RECIBIR UNA CANTIDAD DE PARAMETROS (ES DECIR SUMO CUALQUIER CANTIDAD DE NUMEROS QUE RECIBA POR PARAMETRO).
+
+function sumar(...numeros) {
+    return numeros.reduce((acc, n) => acc + n, 0)
+}
+
+console.log(sumar(100, 200))
+console.log(sumar(450000, 150000, 300000, 500000))
+console.log(sumar(600, 350, 550))
 
